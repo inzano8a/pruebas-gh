@@ -9,8 +9,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    #permissions:
+    #  contents: read
     
     steps:
       - uses: actions/checkout@v3
@@ -26,8 +26,8 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Create Release
-        #uses: actions/create-release@latest
-        uses: avakar/tag-and-release@v1
+        uses: actions/create-release@latest
+        #uses: avakar/tag-and-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -36,6 +36,6 @@ jobs:
           #body: |
           #  Changes in this Release
           #  - First Change
-          #draft: false
-          #prerelease: false
+          draft: false
+          prerelease: false
 
