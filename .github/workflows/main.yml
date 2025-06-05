@@ -31,11 +31,10 @@ jobs:
 
       - name: Create Release
         uses: actions/create-release@latest
-        #uses: avakar/tag-and-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ TAG }}
+          tag_name: ${{ TAG }}
           release_name: Release ${{ TAG }}
           draft: false
           prerelease: false
