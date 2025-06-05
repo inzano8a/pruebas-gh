@@ -13,7 +13,6 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions:
-    #  contents: read
       contents: write
       pull-requests: read
     
@@ -36,11 +35,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ vars.TAG }}
-          release_name: Release ${{ vars.TAG }}
-          #body: |
-          #  Changes in this Release
-          #  - First Change
+          tag_name: v${{ TAG }}
+          release_name: Release ${{ TAG }}
           draft: false
           prerelease: false
 
